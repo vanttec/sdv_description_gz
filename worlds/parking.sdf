@@ -20,8 +20,8 @@
 
         <engine>ogre2</engine>
         <scene>scene</scene>
-        <ambient_light>0.4 0.4 0.4</ambient_light>
-        <background_color>0.9 0.9 0.9</background_color>
+        <ambient_light>0.01 0.01 0.01</ambient_light>
+        <background_color>0.01 0.01 0.01</background_color>
         <camera_pose>-0.96 2.16 2.72 0 1.5 0</camera_pose>
         <camera_clip>
           <near>0.25</near>
@@ -309,7 +309,7 @@
       <cast_shadows>true</cast_shadows>
       <pose>0 0 10 0 0 0</pose>
       <diffuse>0.8 0.8 0.8 1</diffuse>
-      <specular>0 0 0 1</specular>
+      <specular>1 1 1 1</specular>
       <attenuation>
         <range>1000</range>
         <constant>0.9</constant>
@@ -319,7 +319,7 @@
       <direction>-0.5 0.1 -0.9</direction>
     </light>
 
-    <model name="ground_plane">
+    <!-- <model name="ground_plane">
       <static>true</static>
       <link name="link">
         <collision name="collision">
@@ -355,19 +355,19 @@
           </material>
         </visual>
       </link>
-    </model>
+    </model> -->
 
     <!-- VTec - SDV -->
     <include>
       <name>vtec_sdv</name>
-      <pose>0 2 0.325 0 -0 0</pose>
+      <pose>244 29 -0.325 0 -0 0.15</pose>
       <uri>vtec_sdv</uri>
     </include>
 
     <!-- Road -->
     <include>
       <name>road</name>
-      <pose>103.42 -1.42 0 1.5708 0 3.1416</pose>
+      <pose>136 22 56.2 1.5708 0 1.5708</pose>
       <uri>road</uri>
     </include>
 

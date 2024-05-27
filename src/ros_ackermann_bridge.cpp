@@ -17,16 +17,11 @@ public:
     steerSub = this->create_subscription<std_msgs::msg::Float32>(
         "/sdc_control/control_signal/delta", 10,
         [this](const std_msgs::msg::Float32 &msg) {
-          this->delta = msg;
-          if(abs(msg.data) > 1.28){
-            // RCLCPP_INFO(rclcpp::get_logger("ackermann"), "From: %f", this->delta.data);
-            this->delta.data *= abs(1.28 / this->delta.data);
-            // RCLCPP_INFO(rclcpp::get_logger("ackermann"), "To: %f", this->delta.data);
-          }
+          this->delta.data = std::clamp((double)msg.data, -1.28, 1.28);
         });
     velSub = this->create_subscription<std_msgs::msg::Float32>(
         "/sdc_control/setpoint/velocity", 10,
-        [this](const std_msgs::msg::Float32 &msg) {this->velocity_setpoint.data = msg.data;});
+        [this](const std_msgs::msg::Float32 &msg) {this->velocity_setpoint.data = msg.data * 10 / 3;});
 
 
     leftDPub = this->create_publisher<std_msgs::msg::Float64>("/delta_l", 10);

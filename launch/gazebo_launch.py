@@ -62,6 +62,13 @@ def generate_launch_description():
         output='screen'
     )
 
+    ros_ackermann_bridge = Node(
+        package='sdv_description_gz',
+        executable='ros_ackermann_bridge',
+        name='ros_ackermann_bridge',
+        output='screen',
+    )
+
     rviz = Node(
         package='rviz2',
         executable='rviz2',
@@ -75,6 +82,7 @@ def generate_launch_description():
                               description='Open RViz.'),
         bridge,
         rviz,
+        ros_ackermann_bridge,
     ])
 
 '''

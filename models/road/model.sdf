@@ -2,20 +2,21 @@
 <sdf version="1.6">
 
   <model name='road'>
+    <static>true</static>
     <link name='road_link'>
       <visual name='visual'>
         <geometry>
           <mesh>
-            <uri>file://road/meshes/model.glb</uri>
-            <scale>2 2 2</scale>
+            <uri>file://road/meshes/new_model.glb</uri>
+            <scale>100 100 100</scale>
           </mesh>
         </geometry>
       </visual>
       <collision name='collision'>
         <geometry>
           <mesh>
-            <uri>file://road/meshes/model.glb</uri>
-            <scale>2 2 2</scale>
+            <uri>file://road/meshes/new_model.glb</uri>
+            <scale>100 100 100</scale>
           </mesh>
         </geometry>
       </collision>
