@@ -44,7 +44,7 @@ def generate_launch_description():
     )
 
     # Bridge
-    bridge = Node(
+    gz_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
         arguments=[
@@ -76,13 +76,19 @@ def generate_launch_description():
         arguments=['-d', rviz_config],
     )
 
+    foxglove_bridge = Node(
+        package='foxglove_bridge',
+        executable='foxglove_bridge',
+    )
+
     return LaunchDescription([
         gz_sim,
         DeclareLaunchArgument('rviz', default_value='true',
                               description='Open RViz.'),
-        bridge,
+        gz_bridge,
         rviz,
         ros_ackermann_bridge,
+        foxglove_bridge
     ])
 
 '''
